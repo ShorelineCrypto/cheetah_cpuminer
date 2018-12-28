@@ -12,22 +12,26 @@ from several minutes to several hours.
 Cheetah_cpuminer will automatically start mining at local PC when ASIC miners get stuck.
 Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks 
  
- - v1.0.0 is testest under Ubuntu linux 16.04
- - window platforum is untested.  Window platforum will be supported in next release
+ - v1.0.0 is tested under Ubuntu linux 16.04
+ - window platforum is untested.  Window platforum will be supported in next release.
 
 How to Install Cheetah_Cpuminer
 ----------------
 
  - Under Ubuntu or Debian based linux, run below command to install python-bitcoinrpc 
    ( https://github.com/jgarzik/python-bitcoinrpc )
-     pip install python-bitcoinrpc
-
+   
+     sudo pip install python-bitcoinrpc
+   
 
 How to Run Cheetah_Cpuminer
- - Download and run NewEnglandcoin linux wallet first (command line or QT either one)
- - At the same local linux machine, modify the provided newenglandcoin example, change the filename 
- into 'newenglandcoin.conf' , run below command:  cp newenglandcoin.conf  ~/.newenglandcoin/
- - run below command using the provided the bash shell script:  sh cheetah.sh
+ - Download and run NewEnglandcoin linux wallet first (command line or QT either one). 
+ - At the same local linux machine, using the provided newenglandcoin example, modify rpc username password change the filename 
+ into 'newenglandcoin.conf' , run below command:  
+            cp newenglandcoin.conf  ~/.newenglandcoin/ 
+ -  Restart wallet.   Fully sync the wallet to latest block. A full node of NENG is required to allow Cheetah_Cpuminer to work.
+ - run below command using the provided the bash shell script:  
+            sh cheetah.sh
  
 
 License
