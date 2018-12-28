@@ -13,7 +13,7 @@ Cheetah_cpuminer will automatically start mining at local PC when ASIC miners ge
 Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks 
  
  - v1.0.0 is tested under Ubuntu linux 16.04
- - window platforum is untested.  Window platforum will be supported in next release.
+ - window platform is untested.  Cheetah under window operating system will be supported in next release.
 
 How to Install Cheetah_Cpuminer
 ----------------
