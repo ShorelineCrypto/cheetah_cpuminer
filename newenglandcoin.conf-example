@@ -1,0 +1,7 @@
+rpcuser=yourpcuser
+rpcpassword=randomnumbercharacters
+rpcport=6376
+rpcallowip=127.0.0.1
+server=1
+daemon=1
+addnode=76.28.105.88
