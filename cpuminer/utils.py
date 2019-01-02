@@ -20,7 +20,7 @@ import time
 
 #from exceptions import CustomParamException
 
-log_name = '/tmp/' + os.path.basename(__file__) + '.log'
+log_name = os.path.join(tempfile.gettempdir(),  os.path.basename(__file__) + '.log')
 logging.basicConfig(filename=log_name)
 l = logging.getLogger(__name__)  # module logger
 

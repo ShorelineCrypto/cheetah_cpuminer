@@ -92,8 +92,9 @@ def main(args):
         if m3:
             config['rpcport'] = int(m3.group(1))
         
-        
-    utils.properClose(configFile)
+    # window will crash on os.fync on read only file
+    # a simple close
+    configFile.close()
 
     assert config['rpcuser'] is not None, "rpcuser missing!"
     assert config['rpcpassword'] is not None, "rpcpassword missing!"
