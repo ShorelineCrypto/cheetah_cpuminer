@@ -21,6 +21,7 @@ import argparse
 import time
 import datetime
 import itertools
+import platform
 import os.path
 import re
 import sys
@@ -52,11 +53,17 @@ def main(args):
     """Main execution functions.
 
     """
-
-    tmpFile1 = os.path.join(os.path.expanduser("~"), '.newenglandcoin',  'newenglandcoin.conf')
-    tmpFile2 = os.path.join(os.path.dirname(
-        utils.getPathOfThisFile()), 'newenglandcoin.conf')
-    
+    osname = platform.system()
+    if osname == 'Linux':
+       tmpFile1 = os.path.join(os.path.expanduser("~"), '.newenglandcoin',  'newenglandcoin.conf')
+       tmpFile2 = os.path.join(os.path.dirname(
+           utils.getPathOfThisFile()), 'newenglandcoin.conf')
+    elif osname == 'Windows':
+       tmpFile1 = os.path.join(os.path.expandvars("%userprofile%"), 'AppData\Roaming\NewEnglandcoin','newenglandcoin.conf')
+       tmpFile2 = os.path.join(os.path.dirname(
+           utils.getPathOfThisFile()), 'newenglandcoin.conf')
+    else:
+        assert False, "Error: unsupported operating system: {}".format(osname)
 
     if utils.isReadable(tmpFile1):
         NengConfigFile = tmpFile1
