@@ -1,4 +1,4 @@
-cheeta_cpuminer
+#cheeta_cpuminer
 ================================
 
 
@@ -29,7 +29,8 @@ How to Install Cheetah_Cpuminer
      sudo pip install python-bitcoinrpc
 ```
 
-How to Run Cheetah_Cpuminer 
+How to Run Cheetah_Cpuminer
+----------------
  - Download and run NewEnglandcoin linux wallet first (command line or QT either one). 
  - At the same local linux machine, using the provided newenglandcoin example, modify rpc username password change the filename 
  into 'newenglandcoin.conf' , run below command:
@@ -56,8 +57,9 @@ How to Install Cheetah_Cpuminer
      pip install python-bitcoinrpc
 ```
 
-How to Run Cheetah_Cpuminer 
- - Download and run NewEnglandcoin window QT wallet. 
+How to Run Cheetah_Cpuminer
+----------------
+ - Download and run NewEnglandcoin Windows QT wallet. 
  - At the same local machine, using the provided newenglandcoin example, modify rpc username password and change the filename 
  into 'newenglandcoin.conf' ,  copy 'newenglandcoin.conf'  to your path 'C:\Users\YourUser\AppData\Roaming\NewEnglandcoin'
  - Restart wallet.   Fully sync the wallet to latest block. A running full node of NENG is required to allow Cheetah_Cpuminer to work.
