@@ -54,6 +54,7 @@ def main(args):
 
     """
     osname = platform.system()
+    print "Your PC Platform is: {}".format(osname)
     if osname == 'Linux':
        tmpFile1 = os.path.join(os.path.expanduser("~"), '.newenglandcoin',  'newenglandcoin.conf')
        tmpFile2 = os.path.join(os.path.dirname(
@@ -67,8 +68,10 @@ def main(args):
 
     if utils.isReadable(tmpFile1):
         NengConfigFile = tmpFile1
+        print "config found: {}".format(tmpFile1)
     elif utils.isReadable(tmpFile2):
         NengConfigFile = tmpFile2
+        print "config found: {}".format(tmpFile2)
     else:
         raise UserInputException(
             "Error in reading NENG Config File. Please copy or create file 'newenglandcoin.conf' using example file")
