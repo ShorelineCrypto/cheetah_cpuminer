@@ -21,6 +21,7 @@ import argparse
 import time
 import datetime
 import itertools
+import platform
 import os.path
 import re
 import sys
@@ -52,16 +53,25 @@ def main(args):
     """Main execution functions.
 
     """
-
-    tmpFile1 = os.path.join(os.path.expanduser("~"), '.newenglandcoin',  'newenglandcoin.conf')
-    tmpFile2 = os.path.join(os.path.dirname(
-        utils.getPathOfThisFile()), 'newenglandcoin.conf')
-    
+    osname = platform.system()
+    print "Your PC Platform is: {}".format(osname)
+    if osname == 'Linux':
+       tmpFile1 = os.path.join(os.path.expanduser("~"), '.newenglandcoin',  'newenglandcoin.conf')
+       tmpFile2 = os.path.join(os.path.dirname(
+           utils.getPathOfThisFile()), 'newenglandcoin.conf')
+    elif osname == 'Windows':
+       tmpFile1 = os.path.join(os.path.expandvars("%userprofile%"), 'AppData\Roaming\NewEnglandcoin','newenglandcoin.conf')
+       tmpFile2 = os.path.join(os.path.dirname(
+           utils.getPathOfThisFile()), 'newenglandcoin.conf')
+    else:
+        assert False, "Error: unsupported operating system: {}".format(osname)
 
     if utils.isReadable(tmpFile1):
         NengConfigFile = tmpFile1
+        print "config found: {}".format(tmpFile1)
     elif utils.isReadable(tmpFile2):
         NengConfigFile = tmpFile2
+        print "config found: {}".format(tmpFile2)
     else:
         raise UserInputException(
             "Error in reading NENG Config File. Please copy or create file 'newenglandcoin.conf' using example file")
@@ -92,8 +102,9 @@ def main(args):
         if m3:
             config['rpcport'] = int(m3.group(1))
         
-        
-    utils.properClose(configFile)
+    # window will crash on os.fync on read only file
+    # a simple close
+    configFile.close()
 
     assert config['rpcuser'] is not None, "rpcuser missing!"
     assert config['rpcpassword'] is not None, "rpcpassword missing!"
