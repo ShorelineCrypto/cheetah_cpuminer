@@ -1,9 +1,7 @@
-#cheeta_cpuminer
-================================
+# cheeta_cpuminer
 
 
-What is Cheetah_Cpuminer?
-----------------
+## What is Cheetah_Cpuminer?
 
 NewEnglandcoin (NENG) blockchain has dynamic difficulty adjustment algorithm
 which may trigger ASIC miners to get stuck on NENG blockchain finding no blocks
@@ -17,11 +15,9 @@ Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks
    may still work, but they are unsupported.
 
 
-Linux - Ubuntu 16.04
-===============================
+## Linux - Ubuntu 16.04
 
-How to Install Cheetah_Cpuminer
-----------------
+### How to Install Cheetah_Cpuminer
 
  - Under Ubuntu 16.04 based linux, run below command to install python-bitcoinrpc 
    ( https://github.com/jgarzik/python-bitcoinrpc )
@@ -29,8 +25,8 @@ How to Install Cheetah_Cpuminer
      sudo pip install python-bitcoinrpc
 ```
 
-How to Run Cheetah_Cpuminer
-----------------
+### How to Run Cheetah_Cpuminer
+
  - Download and run NewEnglandcoin linux wallet first (command line or QT either one). 
  - At the same local linux machine, using the provided newenglandcoin example, modify rpc username password change the filename 
  into 'newenglandcoin.conf' , run below command:
@@ -44,11 +40,10 @@ How to Run Cheetah_Cpuminer
  ```
  
  
- Windows 10
-===============================
+ ## Windows 10
 
-How to Install Cheetah_Cpuminer
-----------------
+### How to Install Cheetah_Cpuminer
+
  - Download v2.7.x version of windows python from https://www.python.org/downloads/windows/ and install it.
  - Open a window command prompt terminal, run below command to install python-bitcoinrpc 
    ( https://github.com/jgarzik/python-bitcoinrpc )
@@ -57,8 +52,8 @@ How to Install Cheetah_Cpuminer
      pip install python-bitcoinrpc
 ```
 
-How to Run Cheetah_Cpuminer
-----------------
+### How to Run Cheetah_Cpuminer
+
  - Download and run NewEnglandcoin Windows QT wallet. 
  - At the same local machine, using the provided newenglandcoin example, modify rpc username password and change the filename 
  into 'newenglandcoin.conf' ,  copy 'newenglandcoin.conf'  to your path 'C:\Users\YourUser\AppData\Roaming\NewEnglandcoin'
@@ -69,8 +64,8 @@ How to Run Cheetah_Cpuminer
  your CPU mining results. 
  
 
-License
--------
+## License
+
 
 Cheetah_Cpuminer is released under the terms of the MIT license. See `COPYING` for more
 information or see http://opensource.org/licenses/MIT.
