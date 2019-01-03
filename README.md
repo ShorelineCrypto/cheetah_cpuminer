@@ -60,8 +60,9 @@ Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks
  - Restart wallet.   Fully sync the wallet to latest block. A running full node of NENG is required to allow Cheetah_Cpuminer to work.
  - Download and unpack the latest Cheetah_Cpuminer release from https://github.com/ShorelineCrypto/cheetah_cpuminer/releases
  - Double click the provided window batch file 'cheetah.bat' to start CPU mining.   
- - Based on your PC CPU core number, typically 4 core PC use 3, 8 core PC use 7 to modify the command line options of window batch file 'cheetah.bat' to optimize
- your CPU mining results. 
+ - Optimization of CPU mining: change bat file based on your PC CPU core number with window wordpad.  recommends 2 cpu for 4 core Intel PC, 6 cpu for 8 core PC.  For interval you may shortern it to a number such as 60, meaning the software cheetah will check blockchain every 60 seconds to determine to start or stop mining. 
+ #### Note for Windows CPU Miners
+ - Even if the wallet is fully synced under window machine, you may have to  double click the bat file,  stay for couple of minutes and then close it, and restart it again to allow cheetah to work properly.  Somehow cheetah bat file may not work with the first try. 
  
 
 ## License
