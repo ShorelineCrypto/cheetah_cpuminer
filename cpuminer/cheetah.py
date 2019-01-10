@@ -15,7 +15,7 @@ def run_cheetah(prevheight, rpc_user,rpc_password,rpc_port, cpu):
    bcstucktime = cur_epoch - bestblock['time']
 
    if bcstucktime < 0:
-      print "Block Time is ahead of current time, miner cheating or wrong timestamp {} {} GMT".format((bestblock['time'], datetime.utcnow()))
+      print "Height {} block Time is ahead of current time, miner cheating or wrong timestamp {}, current {} GMT".format(bestblock['height'], bestblock['time'], datetime.utcnow())
    mining_info = rpc_connection.getmininginfo()
    
    if ( bcstucktime > 120 ):
