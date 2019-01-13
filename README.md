@@ -10,9 +10,8 @@ from several minutes to several hours.
 Cheetah_cpuminer will automatically start mining at local PC when ASIC miners get stuck.
 Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks 
  
- - v1.1.0 is tested under Ubuntu linux 16.04 and under windows 10
- - Other version of windows platform or linux platform is untested.  Cheetah under other windows (win64 ir win32) or linux (Debian, etc)
-   may still work, but they are unsupported.
+ - v1.1.2 is tested under Windows 10, Mac OSX 10.11 and Ubuntu linux 16.04.
+ - Other versions of Windows, Mac or Linux platform are untested.  Cheetah under other windows (win64 ir win32), mac (OSX 10.7 or later) or linux (Debian, etc) may still work, but they are unsupported.
 
 
 ## Linux - Ubuntu 16.04
@@ -38,6 +37,32 @@ Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks
  ```
             sh cheetah.sh
  ```
+ - Optimization of CPU mining on cheetah.sh file: see below windows section for detailed recommendation. 
+ 
+ 
+ ## Mac - OSX 10.11
+
+### How to Install Cheetah_Cpuminer
+
+ - Under OSX 10.11 based mac terminal, run below command to install python-bitcoinrpc 
+   ( https://github.com/jgarzik/python-bitcoinrpc )
+``` 
+     sudo pip install python-bitcoinrpc
+```
+
+### How to Run Cheetah_Cpuminer
+
+ - Download and run NewEnglandcoin mac wallet first (CLI or GUI either one). 
+ - At the same local mac machine, using the provided newenglandcoin example file, modify rpc username password,  rename the filename  into 'newenglandcoin.conf' , run below command in mac terminal:
+```
+            cp  newenglandcoin.conf  ~/Library/'Application Support'/NewEnglandcoin/
+```
+ -  Restart wallet.   Fully sync the wallet to latest block. A full node of NENG is required to allow Cheetah_Cpuminer to work.
+ - run below command using the provided the bash shell script:
+ ```
+            sh cheetah.sh
+ ```
+ - Optimization of CPU mining on cheetah.sh file: see below windows section for detailed recommendation. 
  
  
  ## Windows 10
