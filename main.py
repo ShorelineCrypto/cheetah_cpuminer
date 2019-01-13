@@ -54,13 +54,17 @@ def main(args):
 
     """
     osname = platform.system()
-    print "Your PC Platform is: {}".format(osname)
+    print "Your Computer Platform is: {}".format(osname)
     if osname == 'Linux':
        tmpFile1 = os.path.join(os.path.expanduser("~"), '.newenglandcoin',  'newenglandcoin.conf')
        tmpFile2 = os.path.join(os.path.dirname(
            utils.getPathOfThisFile()), 'newenglandcoin.conf')
     elif osname == 'Windows':
        tmpFile1 = os.path.join(os.path.expandvars("%userprofile%"), 'AppData\Roaming\NewEnglandcoin','newenglandcoin.conf')
+       tmpFile2 = os.path.join(os.path.dirname(
+           utils.getPathOfThisFile()), 'newenglandcoin.conf')
+    elif osname == 'Darwin':
+       tmpFile1 = os.path.join(os.path.expanduser("~"), 'Library/Application Support/NewEnglandcoin',  'newenglandcoin.conf')
        tmpFile2 = os.path.join(os.path.dirname(
            utils.getPathOfThisFile()), 'newenglandcoin.conf')
     else:
