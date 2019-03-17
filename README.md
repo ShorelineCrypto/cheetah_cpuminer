@@ -10,15 +10,17 @@ from several minutes to several hours.
 Cheetah_cpuminer will automatically start mining at local PC when ASIC miners get stuck.
 Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks 
  
- - v1.1.2 is tested under Windows 10, Mac OSX 10.11 and Ubuntu linux 16.04.
- - Other versions of Windows, Mac or Linux platform are untested.  Cheetah under other windows (win64 ir win32), mac (OSX 10.7 or later) or linux (Debian, etc) may still work, but they are unsupported.
+ - v1.1.2 is tested under Windows 10, Mac OSX 10.11 and Ubuntu 16.04/18.04.
+ - Other versions of Windows, Mac or Linux platform are untested.  Cheetah under other windows (win64 ir win32), mac (OSX 10.7 or later) or linux (Debian, etc) may still work.
+ Python based cheetah typically works on any version of unix. The limitation tends to be the full node software for NewEnglandcoin.
+ If you can run a full node on whatever flavor of unix or mac, or windows, cheetah_cpuminer will work. 
 
 
-## Linux - Ubuntu 16.04
+## Linux - Ubuntu 16.04/18.04
 
 ### How to Install Cheetah_Cpuminer
 
- - Under Ubuntu 16.04 based linux, run below command to install python-bitcoinrpc 
+ - Under Ubuntu 16.04/18.04 based linux, run below command to install python-bitcoinrpc 
    ( https://github.com/jgarzik/python-bitcoinrpc )
 ``` 
      sudo pip install python-bitcoinrpc
@@ -26,7 +28,8 @@ Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks
 
 ### How to Run Cheetah_Cpuminer
 
- - Download and run NewEnglandcoin linux wallet first (command line or QT either one). 
+ - Download and run NewEnglandcoin linux wallet first (command line or QT either one) from release page at:
+ https://github.com/ShorelineCrypto/NewEnglandCoin/releases
  - At the same local linux machine, using the provided newenglandcoin example, modify rpc username password change the filename 
  into 'newenglandcoin.conf' , run below command:
 ```
@@ -34,9 +37,13 @@ Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks
 ```
  -  Restart wallet.   Fully sync the wallet to latest block. A full node of NENG is required to allow Cheetah_Cpuminer to work.
  - run below command using the provided the bash shell script:
- ```
+```
             sh cheetah.sh
- ```
+```
+ or more customized command line like below:
+```
+    python main.py  --interval  10  --cpu 4
+```
  - Optimization of CPU mining on cheetah.sh file: see below windows section for detailed recommendation. 
  
  
