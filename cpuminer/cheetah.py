@@ -19,20 +19,20 @@ def run_cheetah(prevheight, rpc_user,rpc_password,rpc_port, cpu):
    mining_info = rpc_connection.getmininginfo()
    
    if ( bcstucktime > 120 ):
-      print "ASIC miners got stuck on NENG blockchain for {} seconds".format(bcstucktime)
-      print "block {}: {} {} GMT".format(bestblock['height'],bestblock['time'], datetime.utcnow())
+      print "ASIC/GPU miners got stuck on NENG blockchain for {} seconds".format(bcstucktime)
+      print "Cheetah running, block {}: {} {} GMT".format(bestblock['height'],bestblock['time'], datetime.utcnow())
       
       if not mining_info['generate']:
-         print("NENG CPU Mining Started")
+         print("Cheetah accelerates, NENG CPU Mining Started")
          rpc_connection.setgenerate(True, cpu)
       elif bestblock['height'] != prevheight:
-         print("NENG CPU Mining Restarted")
+         print("Cheetah jumps, NENG CPU Mining Restarted")
          rpc_connection.setgenerate(False)
          rpc_connection.setgenerate(True, cpu)
    else:
       if mining_info['generate']:
          print "block {}: {} {} GMT".format(bestblock['height'],bestblock['time'], datetime.utcnow())
-         print("NENG CPU Mining Stopped")
+         print("Cheetah rests, NENG CPU Mining Stopped")
          rpc_connection.setgenerate(False)
 
 

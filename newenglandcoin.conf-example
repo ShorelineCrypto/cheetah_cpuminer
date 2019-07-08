@@ -1,7 +1,14 @@
-rpcuser=yourpcuser
-rpcpassword=randomnumbercharacters
+rpcuser=PickYourUserName
+rpcpassword=ChangeToRandomnumbercharacters
 rpcport=6376
 rpcallowip=127.0.0.1
 server=1
 daemon=1
 addnode=76.28.105.88
+addnode=2.153.119.184
+addnode=75.127.136.66
+addnode=188.165.193.117
+addnode=68.151.225.158
+addnode=173.212.222.241
+addnode=108.49.185.211
+addnode=51.77.116.183

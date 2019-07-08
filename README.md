@@ -7,13 +7,13 @@ NewEnglandcoin (NENG) blockchain has dynamic difficulty adjustment algorithm
 which may trigger ASIC miners to get stuck on NENG blockchain finding no blocks
 from several minutes to several hours.
 
-Cheetah_cpuminer will automatically start mining at local PC when ASIC miners get stuck.
+Cheetah_cpuminer will automatically start mining at local PC when ASIC/GPU miners get stuck.
 Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks 
  
- - v1.1.2 is tested under Windows 10, Mac OSX 10.11 and Ubuntu 16.04/18.04.
+ - v1.1.3 is tested under Windows 10, OS X 10.11 El Capitan, macOS Mojave 10.14.4 and Ubuntu 16.04/18.04.
  - Other versions of Windows, Mac or Linux platform are untested.  Cheetah under other windows (win64 ir win32), mac (OSX 10.7 or later) or linux (Debian, etc) may still work.
- Python based cheetah typically works on any version of unix. The limitation tends to be the full node software for NewEnglandcoin.
- If you can run a full node on whatever flavor of unix or mac, or windows, cheetah_cpuminer will work. 
+ Python based cheetah typically works on any version of unix. The limitation tends to be the full node wallet software for NewEnglandcoin, which is required for the in-wallet
+ mining operation.  If you can run a full node on whatever flavor of unix or mac, or windows, cheetah_cpuminer will work. 
 
 
 ## Linux - Ubuntu 16.04/18.04
@@ -47,28 +47,40 @@ Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks
  - Optimization of CPU mining on cheetah.sh file: see below windows section for detailed recommendation. 
  
  
- ## Mac - OSX 10.11
+ ## MacOS El Capitan, Mojave, or any other versions in between
 
 ### How to Install Cheetah_Cpuminer
 
- - Under OSX 10.11 based mac terminal, run below command to install python-bitcoinrpc 
-   ( https://github.com/jgarzik/python-bitcoinrpc )
+ - Under macOS terminal, install pip if it is not there:
+
+```
+ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+ sudo  python get-pip.py
+```
+
+ - Under macOS terminal, run below command to install python-bitcoinrpc  ( https://github.com/jgarzik/python-bitcoinrpc ):
+ 
 ``` 
      sudo pip install python-bitcoinrpc
 ```
 
 ### How to Run Cheetah_Cpuminer
 
- - Download and run NewEnglandcoin mac wallet first (CLI or GUI either one). 
- - At the same local mac machine, using the provided newenglandcoin example file, modify rpc username password,  rename the filename  into 'newenglandcoin.conf' , run below command in mac terminal:
+ - Download and run NewEnglandcoin mac wallet first (CLI or GUI either one).  Please be aware that additional library files are required to be installed or dmg installed GUI/CLI wallet won't work
+ without them.  macOS Mojave wallet has detailed library dependencies installation guide at:
+ https://github.com/ShorelineCrypto/NewEnglandCoin/releases/download/v1.2.1.2/newenglandcoin_v1.2.1.2_macOS_Mojave.tgz
+ After proper dependencies are installed for macOS, the El Capitan wallet files (CLI or dmg file) should work for all the macOS platforms from version 10.11 or later. 
+ 
+ macO versions of macOS from 10.11 to 10.14 or earlier or later 
+ - At the same local mac machine, using the provided "newenglandcoin.conf-example" example file, modify rpcusername rpcpassword fields value with an editor,  change the filename into 'newenglandcoin.conf' , run below command in mac terminal:
 ```
             cp  newenglandcoin.conf  ~/Library/'Application Support'/NewEnglandcoin/
 ```
  -  Restart wallet.   Fully sync the wallet to latest block. A full node of NENG is required to allow Cheetah_Cpuminer to work.
  - run below command using the provided the bash shell script:
- ```
+```
             sh cheetah.sh
- ```
+```
  - Optimization of CPU mining on cheetah.sh file: see below windows section for detailed recommendation. 
  
  
@@ -87,15 +99,24 @@ Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks
 ### How to Run Cheetah_Cpuminer
 
  - Download and run NewEnglandcoin Windows QT wallet. 
- - At the same local machine, using the provided newenglandcoin example, modify rpc username password and change the filename 
+ - At the same local machine, using the provided "newenglandcoin.conf-example" example file, modify rpcusername rpcpassword fields value with wordpad,  change the filename 
  into 'newenglandcoin.conf' ,  copy 'newenglandcoin.conf'  to your path 'C:\Users\YourUser\AppData\Roaming\NewEnglandcoin'
  - Restart wallet.   Fully sync the wallet to latest block. A running full node of NENG is required to allow Cheetah_Cpuminer to work.
  - Download and unpack the latest Cheetah_Cpuminer release from https://github.com/ShorelineCrypto/cheetah_cpuminer/releases
- - Double click the provided window batch file 'cheetah.bat' to start CPU mining.   
- - Optimization of CPU mining: change bat file based on your PC CPU core number with window wordpad.  recommends 2 cpu for 4 core Intel PC, 6 cpu for 8 core PC.  For interval you may shortern it to a number such as 60, meaning the software cheetah will check blockchain every 60 seconds to determine to start or stop mining. 
+ - Double click the provided window batch file 'cheetah.bat' to start CPU mining.
+ 
  #### Note for Windows CPU Miners
  - Even if the wallet is fully synced under window machine, you may have to  double click the bat file,  stay for couple of minutes and then close it, and restart it again to allow cheetah to work properly.  Somehow cheetah bat file may not work with the first try. 
  
+ #### Optimization for CPU solo mining with Cheetah
+ - change window bat file or linux/mac sh file based on your machine CPU core number.  Recommends 2 cpu for 4 core Intel PC/Mac, 6 cpu for 8 core PC/Mac.
+ For interval you may shortern it to a number such as 10, meaning the software cheetah will check full node blockchain every 10 seconds to determine to start or stop mining.
+ - Example of a full command assuming 10 secondes interval and 2 core cpu in "cheetah.bat" file or "cheetah.sh" file
+```
+     python main.py --interval 10 --cpu 2
+```
+
+
 
 ## License
 
