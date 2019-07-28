@@ -92,7 +92,7 @@ Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks
  - Open a window command prompt terminal, run below command to install python-bitcoinrpc 
    ( https://github.com/jgarzik/python-bitcoinrpc )
 ```
-     set PATH=%PATH%;C:\Python27;C:\Python27\Scripts
+     set PATH=C:\Python27;C:\Python27\Scripts;%PATH%
      pip install python-bitcoinrpc
 ```
 
