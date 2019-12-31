@@ -1,5 +1,9 @@
 # cheeta_cpuminer
 
+## CPU Minable Coin - NewEnglandcoin (NENG)
+Because of dynamic difficulty algorithm on top of scrypt, NewEnglandcoin is CPU Minable. Users can easily set up  full node for mining at Home PC or Mac using our dedicated cheetah software.
+
+Research on the first forked 50 blocks on v1.2.0 core confirmed that ASIC/GPU miners mined 66% of 50 blocks, CPU miners mined the remaining 34%.
 
 ## What is Cheetah_Cpuminer?
 
