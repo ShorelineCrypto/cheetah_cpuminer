@@ -5,6 +5,15 @@ Because of dynamic difficulty algorithm on top of scrypt, NewEnglandcoin is CPU 
 
 Research on the first forked 50 blocks on v1.2.0 core confirmed that ASIC/GPU miners mined 66% of 50 blocks, CPU miners mined the remaining 34%.
 
+Youtube Video Tutorial
+
+How to CPU Mine NewEnglandcoin (NENG) in Windows 10 Part 1 and Part 2
+https://www.youtube.com/watch?v=sdOoPvAjzlE
+https://www.youtube.com/watch?v=nHnRJvJRzZg
+
+How to CPU Mine NewEnglandcoin (NENG) in macOS
+https://www.youtube.com/watch?v=Zj7NLMeNSOQ
+
 ## What is Cheetah_Cpuminer?
 
 NewEnglandcoin (NENG) blockchain has dynamic difficulty adjustment algorithm
