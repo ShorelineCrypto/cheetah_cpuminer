@@ -7,8 +7,10 @@ Research on the first forked 50 blocks on v1.2.0 core confirmed that ASIC/GPU mi
 
 Youtube Video Tutorial
 
-How to CPU Mine NewEnglandcoin (NENG) in Windows 10 Part 1 and Part 2
+How to CPU Mine NewEnglandcoin (NENG) in Windows 10 Part 1
 https://www.youtube.com/watch?v=sdOoPvAjzlE
+
+How to CPU Mine NewEnglandcoin (NENG) in windwos 10 Part2
 https://www.youtube.com/watch?v=nHnRJvJRzZg
 
 How to CPU Mine NewEnglandcoin (NENG) in macOS
