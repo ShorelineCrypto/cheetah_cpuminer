@@ -99,7 +99,7 @@ Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks
  - Optimization of CPU mining on cheetah.sh file: see below windows section for detailed recommendation. 
  
  
- ## Windows 10
+ ## Windows 10, XP or higher
 
 ### How to Install Cheetah_Cpuminer
 
