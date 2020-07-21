@@ -31,7 +31,7 @@ Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks
  mining operation.  If you can run a full node on whatever flavor of unix or mac, or windows, cheetah_cpuminer will work. 
 
 
-## Linux - Ubuntu 16.04/18.04
+## Linux - Ubuntu 16.04/18.04/20.04
 
 ### How to Install Cheetah_Cpuminer
 
@@ -62,7 +62,7 @@ Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks
  - Optimization of CPU mining on cheetah.sh file: see below windows section for detailed recommendation. 
  
  
- ## MacOS El Capitan, Mojave, or any other versions in between
+ ## MacOS 10.11 El Capitan or higher 
 
 ### How to Install Cheetah_Cpuminer
 
