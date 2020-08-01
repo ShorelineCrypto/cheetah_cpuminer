@@ -1,11 +1,18 @@
 # cheeta_cpuminer
 
 ## CPU Minable Coin - NewEnglandcoin (NENG)
-Because of dynamic difficulty algorithm on top of scrypt, NewEnglandcoin is CPU Minable. Users can easily set up  full node for mining at Home PC or Mac using our dedicated cheetah software.
+Because of randomSpike algorithm on top of scrypt, NewEnglandcoin is CPU Minable. Users can easily set up  full node for mining at Home Windows PC, Mac, Linux or android phone using this open sourced cheetah software.  
 
 Research on the first forked 50 blocks on v1.2.0 core confirmed that ASIC/GPU miners mined 66% of 50 blocks, CPU miners mined the remaining 34%.
 
-Youtube Video Tutorial
+## Android Mining with Cheetah_Cpuminer
+
+Android phone (arm 64) has a slightly different operation workflow compared to computers. Please check out web guide for Android CPU Mining through UserLand app at:
+https://github.com/ShorelineCrypto/NewEnglandCoin/tree/master/doc/android_mining_Userland_arm64
+
+The CPU mining portion of Android mining is actually similar as below desktop/laptop guides.
+
+## Youtube Video Tutorial
 
 How to CPU Mine NewEnglandcoin (NENG) in Windows 10 Part 1
 https://www.youtube.com/watch?v=sdOoPvAjzlE
