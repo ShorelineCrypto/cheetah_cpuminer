@@ -7,7 +7,7 @@ Research on the first forked 50 blocks on v1.2.0 core confirmed that ASIC/GPU mi
 
 ## Android Mining with Cheetah_Cpuminer
 
-Android phone (arm 64) has a slightly different operation workflow compared to computers. Please check out web guide for Android CPU Mining through UserLand app at:
+Android phone (64 bits arm) has a slightly different operation workflow compared to computers. Please check out web guide for Android CPU Mining through UserLand app at:
 https://github.com/ShorelineCrypto/NewEnglandCoin/tree/master/doc/android_mining_Userland_arm64
 
 The Cheetah CPU mining operation portion of Android mining setup is actually same as below desktop/laptop guides. Instead of running cheetah in computer terminal, 
