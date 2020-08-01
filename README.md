@@ -10,7 +10,8 @@ Research on the first forked 50 blocks on v1.2.0 core confirmed that ASIC/GPU mi
 Android phone (arm 64) has a slightly different operation workflow compared to computers. Please check out web guide for Android CPU Mining through UserLand app at:
 https://github.com/ShorelineCrypto/NewEnglandCoin/tree/master/doc/android_mining_Userland_arm64
 
-The CPU mining portion of Android mining is actually similar as below desktop/laptop guides.
+The Cheetah CPU mining operation portion of Android mining setup is actually same as below desktop/laptop guides. Instead of running cheetah in computer terminal, 
+you run cheetah inside android UserLand app's linux terminal. 
 
 ## Youtube Video Tutorial
 
@@ -38,7 +39,7 @@ Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks
  mining operation.  If you can run a full node on whatever flavor of unix or mac, or windows, cheetah_cpuminer will work. 
 
 
-## Linux - Ubuntu 16.04/18.04/20.04
+## Linux - Ubuntu/Debian/MX Linux/Linux Mint/Arch/Majaro/Fedora/openSUSE
 
 ### How to Install Cheetah_Cpuminer
 
