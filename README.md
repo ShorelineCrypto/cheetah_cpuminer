@@ -33,20 +33,23 @@ from several minutes to several hours.
 Cheetah_cpuminer will automatically start mining at local PC when ASIC/GPU miners get stuck.
 Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks 
  
- - v1.1.3 is tested under Windows 10, OS X 10.11 El Capitan, macOS Mojave 10.14.4 and Ubuntu 16.04/18.04.
- - Other versions of Windows, Mac or Linux platform are untested.  Cheetah under other windows (win64 ir win32), mac (OSX 10.7 or later) or linux (Debian, etc) may still work.
- Python based cheetah typically works on any version of unix. The limitation tends to be the full node wallet software for NewEnglandcoin, which is required for the in-wallet
- mining operation.  If you can run a full node on whatever flavor of unix or mac, or windows, cheetah_cpuminer will work. 
+ - v1.1.5 is tested under Windows 10, macOS El Capitan (10.11), macOS Mojave (10.14), macOS Catelina (10.15) and 8 distros of Linux (Ubuntu 16.04/18.04/20.04, Debian 10, MX Linux, Linux Mint, Fedora, openSUSE, Arch/Manjaro).
+ - Other versions of Windows, Mac or Linux platform are untested.  Cheetah under other windows, mac, linux may still work. For example windows full node NENG wallet was tested to be working windows XP.  Python based cheetah typically works on any version of unix, windows, or macOS. The limitation tends to be the full node wallet software for NewEnglandcoin, which is required for the in-wallet mining operation.  If you can run a full node on whatever flavor of unix or mac, or windows, cheetah_cpuminer will work. 
 
 
 ## Linux - Ubuntu/Debian/MX Linux/Linux Mint/Arch/Majaro/Fedora/openSUSE
 
 ### How to Install Cheetah_Cpuminer
 
- - Under Ubuntu 16.04/18.04 based linux, run below command to install python-bitcoinrpc 
+ - Under supported version linux, run below command to install python-bitcoinrpc 
    ( https://github.com/jgarzik/python-bitcoinrpc )
 ``` 
      sudo pip install python-bitcoinrpc
+```
+or sometimes the python is python2 in newer linux OS, pip is pip2
+
+```
+     sudo pip2 install python-bitcoinrpc
 ```
 
 ### How to Run Cheetah_Cpuminer
@@ -131,14 +134,21 @@ Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks
  #### Note for Windows CPU Miners
  - Even if the wallet is fully synced under window machine, you may have to  double click the bat file,  stay for couple of minutes and then close it, and restart it again to allow cheetah to work properly.  Somehow cheetah bat file may not work with the first try. 
  
- #### Optimization for CPU solo mining with Cheetah
+ 
+ ## Optimization for CPU solo mining with Cheetah
  - change window bat file or linux/mac sh file based on your machine CPU core number.  Recommends 2 cpu for 4 core Intel PC/Mac, 6 cpu for 8 core PC/Mac.
  For interval you may shortern it to a number such as 10, meaning the software cheetah will check full node blockchain every 10 seconds to determine to start or stop mining.
  - Example of a full command assuming 10 secondes interval and 2 core cpu in "cheetah.bat" file or "cheetah.sh" file
+
 ```
      python main.py --interval 10 --cpu 2
 ```
 
+In newer version of Linux OS, sometimes the python 2.7 path is "python2" so that the command should be:
+
+```
+     python2 main.py --interval 10 --cpu 2
+```
 
 
 ## License
