@@ -10,8 +10,17 @@ Research on the first forked 50 blocks on v1.2.0 core confirmed that ASIC/GPU mi
 Android phone (64 bits arm) has a slightly different operation workflow compared to computers. Please check out web guide for Android CPU Mining through UserLand app at:
 https://github.com/ShorelineCrypto/NewEnglandCoin/tree/master/doc/android_mining_Userland_arm64
 
-The Cheetah CPU mining operation portion of Android mining setup is actually same as below desktop/laptop guides. Instead of running cheetah in computer terminal, 
+The Cheetah CPU mining operation portion of Android mining setup is actually same as below desktop/laptop linux guides. Instead of running cheetah in computer terminal, 
 you run cheetah inside android UserLand app's linux terminal. 
+
+## Chromebook Mining with Cheetah_Cpuminer
+
+Chromebook (64 bits x86) has a slightly different operation workflow compared to computers. Please check out web guide for Chromebook CPU Mining through Linux (beta) app at:
+https://github.com/ShorelineCrypto/NewEnglandCoin/tree/master/doc/Chromebook
+
+The Cheetah CPU mining operation portion of Chromebook mining setup is actually same as below desktop/laptop linux guides. Instead of running cheetah in computer terminal, 
+you run cheetah inside chromebook's linux terminal. 
+
 
 ## Youtube Video Tutorial
 
