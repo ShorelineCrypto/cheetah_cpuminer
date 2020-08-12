@@ -1,7 +1,20 @@
 # cheeta_cpuminer
 
+## What is Cheetah_Cpuminer?
+
+NewEnglandcoin (NENG) blockchain has 3rd generation dynamic difficulty adjustment algorithm "randomSpike"
+which may trigger ASIC miners to get stuck on NENG blockchain finding no blocks
+from several minutes to several hours.
+
+Cheetah_cpuminer will automatically start mining at local PC when ASIC/GPU miners get stuck.
+Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks 
+ 
+ - v1.1.5 is tested under Windows 10, macOS El Capitan (10.11), macOS Mojave (10.14), macOS Catelina (10.15) and 8 distros of Linux (Ubuntu 16.04/18.04/20.04, Debian 9/10, MX Linux, Linux Mint, Fedora, openSUSE, Arch/Manjaro).
+ - Other versions of Windows, Mac or Linux platform are untested.  Cheetah under other windows, mac, linux may still work. For example windows full node NENG wallet was tested to be working windows XP.  Python based cheetah typically works on any version of unix, windows, or macOS. The limitation tends to be the full node wallet software for NewEnglandcoin, which is required for the in-wallet mining operation.  If you can run a full node on whatever flavor of unix or mac, or windows, cheetah_cpuminer will work. 
+
+
 ## CPU Minable Coin - NewEnglandcoin (NENG)
-Because of randomSpike algorithm on top of scrypt, NewEnglandcoin is CPU Minable. Users can easily set up  full node for mining at Home Windows PC, Mac, Linux or android phone using this open sourced cheetah software.  
+Because of randomSpike algorithm on top of scrypt, NewEnglandcoin is CPU Minable. Users can easily set up  full node for mining at Home Windows PC, Mac, Linux, Chromebook or android phones using this open sourced cheetah software.  
 
 Research on the first forked 50 blocks on v1.2.0 core confirmed that ASIC/GPU miners mined 66% of 50 blocks, CPU miners mined the remaining 34%.
 
@@ -33,20 +46,8 @@ https://www.youtube.com/watch?v=nHnRJvJRzZg
 How to CPU Mine NewEnglandcoin (NENG) in macOS
 https://www.youtube.com/watch?v=Zj7NLMeNSOQ
 
-## What is Cheetah_Cpuminer?
 
-NewEnglandcoin (NENG) blockchain has dynamic difficulty adjustment algorithm
-which may trigger ASIC miners to get stuck on NENG blockchain finding no blocks
-from several minutes to several hours.
-
-Cheetah_cpuminer will automatically start mining at local PC when ASIC/GPU miners get stuck.
-Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks 
- 
- - v1.1.5 is tested under Windows 10, macOS El Capitan (10.11), macOS Mojave (10.14), macOS Catelina (10.15) and 8 distros of Linux (Ubuntu 16.04/18.04/20.04, Debian 10, MX Linux, Linux Mint, Fedora, openSUSE, Arch/Manjaro).
- - Other versions of Windows, Mac or Linux platform are untested.  Cheetah under other windows, mac, linux may still work. For example windows full node NENG wallet was tested to be working windows XP.  Python based cheetah typically works on any version of unix, windows, or macOS. The limitation tends to be the full node wallet software for NewEnglandcoin, which is required for the in-wallet mining operation.  If you can run a full node on whatever flavor of unix or mac, or windows, cheetah_cpuminer will work. 
-
-
-## Linux - Ubuntu/Debian/MX Linux/Linux Mint/Arch/Majaro/Fedora/openSUSE
+## Linux - Ubuntu/Debian/MX Linux/Linux Mint/Arch/Manjaro/Fedora/openSUSE
 
 ### How to Install Cheetah_Cpuminer
 
