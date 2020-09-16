@@ -1,5 +1,20 @@
 # cheeta_cpuminer
 
+## Youtube Video Tutorial
+
+* How to CPU Mine NewEnglandcoin (NENG) in Windows 10 
+
+Part 1
+https://www.youtube.com/watch?v=sdOoPvAjzlE
+
+Part2
+https://www.youtube.com/watch?v=nHnRJvJRzZg
+
+* How to CPU Mine NewEnglandcoin (NENG) in macOS
+
+https://www.youtube.com/watch?v=Zj7NLMeNSOQ
+
+
 ## What is Cheetah_Cpuminer?
 
 NewEnglandcoin (NENG) blockchain has 3rd generation dynamic difficulty adjustment algorithm "randomSpike"
@@ -33,18 +48,6 @@ https://github.com/ShorelineCrypto/NewEnglandCoin/tree/master/doc/Chromebook
 
 The Cheetah CPU mining operation portion of Chromebook mining setup is actually same as below desktop/laptop linux guides. Instead of running cheetah in computer terminal, 
 you run cheetah inside chromebook's linux terminal. 
-
-
-## Youtube Video Tutorial
-
-How to CPU Mine NewEnglandcoin (NENG) in Windows 10 Part 1
-https://www.youtube.com/watch?v=sdOoPvAjzlE
-
-How to CPU Mine NewEnglandcoin (NENG) in windwos 10 Part2
-https://www.youtube.com/watch?v=nHnRJvJRzZg
-
-How to CPU Mine NewEnglandcoin (NENG) in macOS
-https://www.youtube.com/watch?v=Zj7NLMeNSOQ
 
 
 ## Linux - Ubuntu/Debian/MX Linux/Linux Mint/Arch/Manjaro/Fedora/openSUSE
