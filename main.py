@@ -1,13 +1,13 @@
 #!/usr/bin/env python2.7
 """
-NewEnglandcoin (NENG) blockchain has dynamic difficulty adjustment algorithm
+Nengcoin (NENG) blockchain has dynamic difficulty adjustment algorithm
 which may trigger ASIC miners to get stuck on NENG blockchain finding no blocks
 from several minutes to several hours.
 
 Cheetah_cpuminer will automatically start mining at local PC when ASIC miners get stuck.
 Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks. 
 
-A full node of NewEnglandcoin is required to be running at local PC
+A full node of Nengcoin is required to be running at local PC
 """
 
 
@@ -56,17 +56,17 @@ def main(args):
     osname = platform.system()
     print "Your Computer Platform is: {}".format(osname)
     if osname == 'Linux':
-       tmpFile1 = os.path.join(os.path.expanduser("~"), '.newenglandcoin',  'newenglandcoin.conf')
+       tmpFile1 = os.path.join(os.path.expanduser("~"), '.nengcoin',  'nengcoin.conf')
        tmpFile2 = os.path.join(os.path.dirname(
-           utils.getPathOfThisFile()), 'newenglandcoin.conf')
+           utils.getPathOfThisFile()), 'nengcoin.conf')
     elif osname == 'Windows':
-       tmpFile1 = os.path.join(os.path.expandvars("%userprofile%"), 'AppData\Roaming\NewEnglandcoin','newenglandcoin.conf')
+       tmpFile1 = os.path.join(os.path.expandvars("%userprofile%"), 'AppData\Roaming\Nengcoin','nengcoin.conf')
        tmpFile2 = os.path.join(os.path.dirname(
-           utils.getPathOfThisFile()), 'newenglandcoin.conf')
+           utils.getPathOfThisFile()), 'nengcoin.conf')
     elif osname == 'Darwin':
-       tmpFile1 = os.path.join(os.path.expanduser("~"), 'Library/Application Support/NewEnglandcoin',  'newenglandcoin.conf')
+       tmpFile1 = os.path.join(os.path.expanduser("~"), 'Library/Application Support/Nengcoin',  'nengcoin.conf')
        tmpFile2 = os.path.join(os.path.dirname(
-           utils.getPathOfThisFile()), 'newenglandcoin.conf')
+           utils.getPathOfThisFile()), 'nengcoin.conf')
     else:
         assert False, "Error: unsupported operating system: {}".format(osname)
 
@@ -78,7 +78,7 @@ def main(args):
         print "config found: {}".format(tmpFile2)
     else:
         raise UserInputException(
-            "Error in reading NENG Config File. Please copy or create file 'newenglandcoin.conf' using example file")
+            "Error in reading NENG Config File. Please copy or create file 'nengcoin.conf' using example file")
         sys.exit(100)
 
 
