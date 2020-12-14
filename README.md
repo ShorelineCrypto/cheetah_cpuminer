@@ -106,11 +106,9 @@ or sometimes the python is python2 in newer linux OS, pip is pip2
 ### How to Run Cheetah_Cpuminer
 
  - Download and run Nengcoin mac wallet first (CLI or GUI either one).  Please be aware that additional library files are required to be installed or dmg installed GUI/CLI wallet won't work
- without them.  macOS Mojave wallet has detailed library dependencies installation guide at:
- https://github.com/ShorelineCrypto/NengCoin/releases/download/v1.2.1.2/nengcoin_v1.2.1.2_macOS_Mojave.tgz
- After proper dependencies are installed for macOS, the El Capitan wallet files (CLI or dmg file) should work for all the macOS platforms from version 10.11 or later. 
+ without them.  After proper dependencies are installed for macOS, the El Capitan wallet files (CLI or dmg file) should work for all the macOS platforms from version 10.11 or later including Catalina. 
  
- macO versions of macOS from 10.11 to 10.14 or earlier or later 
+ macO versions of macOS from 10.11 to 10.15 
  - At the same local mac machine, using the provided "nengcoin.conf-example" example file, modify rpcusername rpcpassword fields value with an editor,  change the filename into 'nengcoin.conf' , run below command in mac terminal:
 ```
             cp  nengcoin.conf  ~/Library/'Application Support'/Nengcoin/
