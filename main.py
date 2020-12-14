@@ -1,10 +1,5 @@
 #!/usr/bin/env python2.7
 """
-Bitcoin Digital Gold - HODL
-Litecoin Silver to Bitcoin's Gold
-Dogecoin to the Moon
-Running Cheetah with Neng
-
 Nengcoin (NENG) blockchain has dynamic difficulty adjustment algorithm
 which may trigger ASIC miners to get stuck on NENG blockchain finding no blocks
 from several minutes to several hours.
@@ -117,6 +112,14 @@ def main(args):
 
     assert config['rpcuser'] is not None, "rpcuser missing!"
     assert config['rpcpassword'] is not None, "rpcpassword missing!"
+
+
+"""
+Bitcoin Digital Gold - HODL
+Litecoin Silver to Bitcoin's Gold
+Dogecoin to the Moon
+Running Cheetah with Neng
+"""
  
     print "cheetah_cpuminer started!"
  

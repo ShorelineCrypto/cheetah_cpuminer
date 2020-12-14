@@ -1,3 +1,3 @@
 #! /bin/bash
 python main.py -h 
-python main.py --interval 20 --cpu 1
+python main.py --interval 10 --cpu 1
