@@ -114,7 +114,7 @@ def main(args):
     assert config['rpcpassword'] is not None, "rpcpassword missing!"
 
 
-    print "Bitcoin Digital Gold - HODL\nLitecoin Silver to Bitcoin's Gold\nDogecoin to the Moon\nRunning Cheetah with Neng"
+    print "Bitcoin Digital Gold - HODL\nLitecoin Silver to Bitcoin's Gold\nDogecoin to the Moon\nHere comes Cheetah running with Neng"
     print "cheetah_cpuminer started!"
  
     blocknum = 0
