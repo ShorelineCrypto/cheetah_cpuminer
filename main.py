@@ -1,13 +1,13 @@
 #!/usr/bin/env python2.7
 """
-Nengcoin (NENG) blockchain has dynamic difficulty adjustment algorithm
-which may trigger ASIC miners to get stuck on NENG blockchain finding no blocks
+Cheetahcoin (CHTA) blockchain has dynamic difficulty adjustment algorithm
+which may trigger ASIC miners to get stuck on CHTA blockchain finding no blocks
 from several minutes to several hours.
 
 Cheetah_cpuminer will automatically start mining at local PC when ASIC miners get stuck.
 Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks. 
 
-A full node of Nengcoin is required to be running at local PC
+A full node of Cheetahcoin is required to be running at local PC
 """
 
 
@@ -56,17 +56,17 @@ def main(args):
     osname = platform.system()
     print "Your Computer Platform is: {}".format(osname)
     if osname == 'Linux':
-       tmpFile1 = os.path.join(os.path.expanduser("~"), '.nengcoin',  'nengcoin.conf')
+       tmpFile1 = os.path.join(os.path.expanduser("~"), '.cheetahcoin',  'cheetahcoin.conf')
        tmpFile2 = os.path.join(os.path.dirname(
-           utils.getPathOfThisFile()), 'nengcoin.conf')
+           utils.getPathOfThisFile()), 'cheetahcoin.conf')
     elif osname == 'Windows':
-       tmpFile1 = os.path.join(os.path.expandvars("%userprofile%"), 'AppData\Roaming\Nengcoin','nengcoin.conf')
+       tmpFile1 = os.path.join(os.path.expandvars("%userprofile%"), 'AppData\Roaming\Cheetahcoin','cheetahcoin.conf')
        tmpFile2 = os.path.join(os.path.dirname(
-           utils.getPathOfThisFile()), 'nengcoin.conf')
+           utils.getPathOfThisFile()), 'cheetahcoin.conf')
     elif osname == 'Darwin':
-       tmpFile1 = os.path.join(os.path.expanduser("~"), 'Library/Application Support/Nengcoin',  'nengcoin.conf')
+       tmpFile1 = os.path.join(os.path.expanduser("~"), 'Library/Application Support/Cheetahcoin',  'cheetahcoin.conf')
        tmpFile2 = os.path.join(os.path.dirname(
-           utils.getPathOfThisFile()), 'nengcoin.conf')
+           utils.getPathOfThisFile()), 'cheetahcoin.conf')
     else:
         assert False, "Error: unsupported operating system: {}".format(osname)
 
@@ -78,14 +78,14 @@ def main(args):
         print "config found: {}".format(tmpFile2)
     else:
         raise UserInputException(
-            "Error in reading NENG Config File. Please copy or create file 'nengcoin.conf' using example file")
+            "Error in reading CHTA Config File. Please copy or create file 'cheetahcoin.conf' using example file")
         sys.exit(100)
 
 
     # Loading configuration file
     configFile = open(NengConfigFile, 'rU')
     config = dict([(k, None) for k in ['rpcuser', 'rpcpassword', 'rpcport']])
-    config['rpcport'] = 6376
+    config['rpcport'] = 8536 
 
     # TODO: Properly Loading config from file
     for line in configFile:
@@ -112,11 +112,8 @@ def main(args):
 
     assert config['rpcuser'] is not None, "rpcuser missing!"
     assert config['rpcpassword'] is not None, "rpcpassword missing!"
-
-
-    print "Bitcoin Digital Gold - HODL\nLitecoin Silver to Bitcoin's Gold\nDogecoin to the Moon"
-    print "Here comes Cheetah running with Neng\nMobile Decentralization!\n"
-    print "cheetah_cpuminer started"
+ 
+    print "cheetah_cpuminer started!"
  
     blocknum = 0
     while True:
@@ -139,7 +136,7 @@ if __name__ == '__main__':
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
     parser.add_argument('--interval', type=int, nargs='?', default=120 , 
-                        help='seconds to wait between each check on NENG blockchain, [default: 120]')
+                        help='seconds to wait between each check on CHTA blockchain, [default: 120]')
     parser.add_argument('--cpu', nargs='?', type=int, default=1 ,
                         help='How many cpu cores to be used for mining [default: 1]')
     
