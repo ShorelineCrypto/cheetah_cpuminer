@@ -69,10 +69,10 @@ or sometimes the python is python2 in newer linux OS, pip is pip2
 
  - Download and run Cheetahcoin linux wallet first (command line or QT either one) from release page at:
  https://github.com/ShorelineCrypto/CheetahCoin/releases
- - At the same local linux machine, using the provided newenglandcoin example, modify rpc username password change the filename 
- into 'newenglandcoin.conf' , run below command:
+ - At the same local linux machine, using the provided cheetahcoin example, modify rpc username password change the filename 
+ into 'cheetahcoin.conf' , run below command:
 ```
-            cp newenglandcoin.conf  ~/.newenglandcoin/
+            cp cheetahcoin.conf  ~/.cheetahcoin/
 ```
  -  Restart wallet.   Fully sync the wallet to latest block. A full node of CHTA is required to allow Cheetah_Cpuminer to work.
  - run below command using the provided the bash shell script:
@@ -107,13 +107,13 @@ or sometimes the python is python2 in newer linux OS, pip is pip2
 
  - Download and run Cheetahcoin mac wallet first (CLI or GUI either one).  Please be aware that additional library files are required to be installed or dmg installed GUI/CLI wallet won't work
  without them.  macOS Mojave wallet has detailed library dependencies installation guide at:
- https://github.com/ShorelineCrypto/CheetahCoin/releases/download/v1.2.1.2/newenglandcoin_v1.2.1.2_macOS_Mojave.tgz
+ https://github.com/ShorelineCrypto/CheetahCoin/releases/download/v1.2.1.2/cheetahcoin_v1.2.1.2_macOS_Mojave.tgz
  After proper dependencies are installed for macOS, the El Capitan wallet files (CLI or dmg file) should work for all the macOS platforms from version 10.11 or later. 
  
  macO versions of macOS from 10.11 to 10.14 or earlier or later 
- - At the same local mac machine, using the provided "newenglandcoin.conf-example" example file, modify rpcusername rpcpassword fields value with an editor,  change the filename into 'newenglandcoin.conf' , run below command in mac terminal:
+ - At the same local mac machine, using the provided "cheetahcoin.conf-example" example file, modify rpcusername rpcpassword fields value with an editor,  change the filename into 'cheetahcoin.conf' , run below command in mac terminal:
 ```
-            cp  newenglandcoin.conf  ~/Library/'Application Support'/Cheetahcoin/
+            cp  cheetahcoin.conf  ~/Library/'Application Support'/Cheetahcoin/
 ```
  -  Restart wallet.   Fully sync the wallet to latest block. A full node of CHTA is required to allow Cheetah_Cpuminer to work.
  - run below command using the provided the bash shell script:
@@ -138,8 +138,8 @@ or sometimes the python is python2 in newer linux OS, pip is pip2
 ### How to Run Cheetah_Cpuminer
 
  - Download and run Cheetahcoin Windows QT wallet. 
- - At the same local machine, using the provided "newenglandcoin.conf-example" example file, modify rpcusername rpcpassword fields value with wordpad,  change the filename 
- into 'newenglandcoin.conf' ,  copy 'newenglandcoin.conf'  to your path 'C:\Users\YourUser\AppData\Roaming\Cheetahcoin'
+ - At the same local machine, using the provided "cheetahcoin.conf-example" example file, modify rpcusername rpcpassword fields value with wordpad,  change the filename 
+ into 'cheetahcoin.conf' ,  copy 'cheetahcoin.conf'  to your path 'C:\Users\YourUser\AppData\Roaming\Cheetahcoin'
  - Restart wallet.   Fully sync the wallet to latest block. A running full node of CHTA is required to allow Cheetah_Cpuminer to work.
  - Download and unpack the latest Cheetah_Cpuminer release from https://github.com/ShorelineCrypto/cheetah_cpuminer/releases
  - Double click the provided window batch file 'cheetah.bat' to start CPU mining.
