@@ -1,14 +1,24 @@
 # cheeta_cpuminer
 
-## Youtube Video Tutorial
+## Cheetah_Cpuminer for Cheetahcoin (CHTA) 
 
-* How to CPU Mine Cheetahcoin (CHTA) in Windows 10 
+* How to Install Cheetah_Cpuminer for Cheetahcoin (CHTA)? 
 
-Part 1
-https://www.youtube.com/watch?v=sdOoPvAjzlE
+github branch of "chta" of below repos:
+https://github.com/ShorelineCrypto/cheetah_cpuminer/tree/chta
 
-Part2
-https://www.youtube.com/watch?v=nHnRJvJRzZg
+Under command line with git. run below to access this branch for CHTA for linux/mac bash shell:
+
+```
+  git clone https://github.com/ShorelineCrypto/cheetah_cpuminer
+  cd cheetah_cpuminer
+  git pull
+  git checkout chta
+```
+
+Or download directly on zip file of "chta-beta2" release:
+https://github.com/ShorelineCrypto/cheetah_cpuminer/releases/tag/chta-beta2
+
 
 * How to CPU Mine Cheetahcoin (CHTA) in macOS
 
