@@ -20,11 +20,6 @@ Or download directly on zip file of "chta-beta2" release:
 https://github.com/ShorelineCrypto/cheetah_cpuminer/releases/tag/chta-beta2
 
 
-* How to CPU Mine Cheetahcoin (CHTA) in macOS
-
-https://www.youtube.com/watch?v=Zj7NLMeNSOQ
-
-
 ## What is Cheetah_Cpuminer?
 
 Cheetahcoin (CHTA) blockchain has 3rd generation dynamic difficulty adjustment algorithm "randomSpike"
