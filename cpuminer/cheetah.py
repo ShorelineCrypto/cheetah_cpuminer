@@ -18,7 +18,6 @@ def run_cheetah(prevheight, rpc_user,rpc_password,rpc_port, cpu):
       print "Height {} block Time is ahead of current time {} seconds, possible miner cheating on timestamp, current {} GMT".format(bestblock['height'], bcstucktime, datetime.utcnow())
    mining_info = rpc_connection.getmininginfo()
    
-   bcstucktime = abs(bcstucktime)
    if ( bcstucktime > 120 ):
       print "ASIC/GPU miners got stuck on NENG blockchain for {} seconds".format(bcstucktime)
       print "Cheetah running, block {}: {} {} GMT".format(bestblock['height'],bestblock['time'], datetime.utcnow())
