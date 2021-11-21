@@ -98,7 +98,7 @@ or sometimes the python is python2 in newer linux OS, pip is pip2
  - Under macOS terminal, install pip if it is not there:
 
 ```
- curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+ curl https://bootstrap.pypa.io/pip/2.7/get-pip.py  -o get-pip.py
  sudo  python get-pip.py
 ```
 
