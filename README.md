@@ -4,6 +4,8 @@
 
 * How to Install Cheetah_Cpuminer for Cheetahcoin (CHTA)? 
 
+Warning: this software only works on older verison of python 2.7 or python2. This software will not work in newest python 3 versions.
+
 github branch of "chta" of below repos:
 https://github.com/ShorelineCrypto/cheetah_cpuminer/tree/chta
 
@@ -163,7 +165,7 @@ or sometimes the python is python2 in newer linux OS, pip is pip2
      python main.py --interval 10 --cpu 2
 ```
 
-In newer version of Linux OS, sometimes the python 2.7 path is "python2" so that the command should be:
+In newer version of Linux or MacOS, many times the python 2.7 path is "python2" so that the command should be:
 
 ```
      python2 main.py --interval 10 --cpu 2
