@@ -62,7 +62,8 @@ you run cheetah inside chromebook's linux terminal.
  - Under supported version linux, run below command to install python-bitcoinrpc 
    ( https://github.com/jgarzik/python-bitcoinrpc )
 ``` 
-     sudo pip install python-bitcoinrpc
+     curl https://bootstrap.pypa.io/pip/2.7/get-pip.py  -o get-pip.py
+     sudo  python2 get-pip.py
 ```
 or sometimes the python is python2 in newer linux OS, pip is pip2
 
@@ -86,7 +87,7 @@ or sometimes the python is python2 in newer linux OS, pip is pip2
 ```
  or more customized command line like below:
 ```
-    python main.py  --interval  10  --cpu 4
+    python2 main.py  --interval  10  --cpu 4
 ```
  - Optimization of CPU mining on cheetah.sh file: see below windows section for detailed recommendation. 
  
