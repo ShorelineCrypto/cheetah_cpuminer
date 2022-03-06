@@ -67,7 +67,7 @@ you run cheetah inside chromebook's linux terminal.
      curl https://bootstrap.pypa.io/pip/2.7/get-pip.py  -o get-pip.py
      sudo  python2 get-pip.py
 ```
-or sometimes the python is python2 in newer linux OS, pip is pip2
+In new linux distro versions,  the python 2.7 is python2 , pip2 is used to avoid confusion with python3
 
 ```
      sudo pip2 install python-bitcoinrpc
