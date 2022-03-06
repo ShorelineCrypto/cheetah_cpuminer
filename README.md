@@ -1,5 +1,7 @@
 # cheeta_cpuminer
 
+Warning: this software only works on older verison of python 2.7 or python2. This software will not work in newest python 3 versions.
+
 ## Youtube Video Tutorial
 
 * How to CPU Mine Nengcoin (NENG) in Windows 10 
@@ -57,9 +59,10 @@ you run cheetah inside chromebook's linux terminal.
  - Under supported version linux, run below command to install python-bitcoinrpc 
    ( https://github.com/jgarzik/python-bitcoinrpc )
 ``` 
-     sudo pip install python-bitcoinrpc
+     curl https://bootstrap.pypa.io/pip/2.7/get-pip.py  -o get-pip.py
+     sudo  python2 get-pip.py
 ```
-or sometimes the python is python2 in newer linux OS, pip is pip2
+     In new linux distro versions,  the python 2.7 is python2 , pip2 is used to avoid confusion with python3 
 
 ```
      sudo pip2 install python-bitcoinrpc
@@ -81,7 +84,7 @@ or sometimes the python is python2 in newer linux OS, pip is pip2
 ```
  or more customized command line like below:
 ```
-    python main.py  --interval  10  --cpu 4
+    python2 main.py  --interval  10  --cpu 4
 ```
  - Optimization of CPU mining on cheetah.sh file: see below windows section for detailed recommendation. 
  
@@ -93,14 +96,14 @@ or sometimes the python is python2 in newer linux OS, pip is pip2
  - Under macOS terminal, install pip if it is not there:
 
 ```
- curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
- sudo  python get-pip.py
+     curl https://bootstrap.pypa.io/pip/2.7/get-pip.py  -o get-pip.py
+     sudo  python2 get-pip.py
 ```
 
  - Under macOS terminal, run below command to install python-bitcoinrpc  ( https://github.com/jgarzik/python-bitcoinrpc ):
  
 ``` 
-     sudo pip install python-bitcoinrpc
+     sudo pip2 install python-bitcoinrpc
 ```
 
 ### How to Run Cheetah_Cpuminer
@@ -155,7 +158,7 @@ or sometimes the python is python2 in newer linux OS, pip is pip2
      python main.py --interval 10 --cpu 2
 ```
 
-In newer version of Linux OS, sometimes the python 2.7 path is "python2" so that the command should be:
+In newer version of Linux or macOS, many times the python 2.7 path is "python2" so that the command should be:
 
 ```
      python2 main.py --interval 10 --cpu 2
