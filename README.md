@@ -18,9 +18,9 @@ Under command line with git. run below to access this branch for CHTA for linux/
   git checkout chta
 ```
 
-Or download directly on zip file of "chta-beta2" release:
-https://github.com/ShorelineCrypto/cheetah_cpuminer/releases/tag/chta-beta2
+Or download directly on zip file of "chta1.5.0" release:
 
+https://github.com/ShorelineCrypto/cheetah_cpuminer/releases/tag/chta1.5.0
 
 ## What is Cheetah_Cpuminer?
 
