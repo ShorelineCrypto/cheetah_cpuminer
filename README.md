@@ -96,8 +96,13 @@ you run cheetah inside chromebook's linux terminal.
  - Under macOS terminal, install pip if it is not there:
 
 ```
+<<<<<<< HEAD
      curl https://bootstrap.pypa.io/pip/2.7/get-pip.py  -o get-pip.py
      sudo  python2 get-pip.py
+=======
+ curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py
+ sudo  python get-pip.py
+>>>>>>> b2a498f2acdb8a1d81b13718bc48e385ac5609ef
 ```
 
  - Under macOS terminal, run below command to install python-bitcoinrpc  ( https://github.com/jgarzik/python-bitcoinrpc ):
