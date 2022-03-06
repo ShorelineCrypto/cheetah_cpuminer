@@ -1,10 +1,10 @@
 # cheeta_cpuminer
 
+Warning: this software only works on older verison of python 2.7 or python2. This software will not work in newest python 3 versions.
+
 ## Cheetah_Cpuminer for Cheetahcoin (CHTA) 
 
 * How to Install Cheetah_Cpuminer for Cheetahcoin (CHTA)? 
-
-Warning: this software only works on older verison of python 2.7 or python2. This software will not work in newest python 3 versions.
 
 github branch of "chta" of below repos:
 https://github.com/ShorelineCrypto/cheetah_cpuminer/tree/chta
