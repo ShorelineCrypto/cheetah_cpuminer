@@ -10,8 +10,8 @@ https://github.com/ShorelineCrypto/cheetah_cpuminer/tree/chta
 Under command line with git. run below to access this branch for CHTA for linux/mac bash shell:
 
 ```
-  git clone https://github.com/ShorelineCrypto/cheetah_cpuminer
-  cd cheetah_cpuminer
+  git clone https://github.com/ShorelineCrypto/cheetah_cpuminer cheetah_cpuminer_chta
+  cd cheetah_cpuminer_chta
   git pull
   git checkout chta
 ```
@@ -99,13 +99,13 @@ or sometimes the python is python2 in newer linux OS, pip is pip2
 
 ```
  curl https://bootstrap.pypa.io/pip/2.7/get-pip.py  -o get-pip.py
- sudo  python get-pip.py
+ sudo  python2 get-pip.py
 ```
 
  - Under macOS terminal, run below command to install python-bitcoinrpc  ( https://github.com/jgarzik/python-bitcoinrpc ):
  
 ``` 
-     sudo pip install python-bitcoinrpc
+     sudo pip2 install python-bitcoinrpc
 ```
 
 ### How to Run Cheetah_Cpuminer
