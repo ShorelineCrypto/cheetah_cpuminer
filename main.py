@@ -113,9 +113,9 @@ def main(args):
     assert config['rpcuser'] is not None, "rpcuser missing!"
     assert config['rpcpassword'] is not None, "rpcpassword missing!"
  
-    print "Bitcoin Digital Gold - HODL\nLitecoin Silver to Bitcoin's Gold\nDogecoin to the Moon"
-    print "Here comes Cheetah running with Neng\nMobile Decentralization!\n"
-    print "cheetah_cpuminer started!"
+    print "Cheetahcoin (CHTA) is a cat meme coin on Bitcoin's SHA256\n"
+    print "\nMobile Decentralization!\n"
+    print "Cheetahcoin cheetah_cpuminer started!"
  
     blocknum = 0
     while True:
