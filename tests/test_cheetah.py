@@ -11,17 +11,18 @@ class FakeRPC:
         self.block_time = block_time
         self.generating = generating
         self.calls = []
+        self.getblock_params = None
 
     async def getbestblockhash(self):
         return 'best-block-hash'
-
-    async def getblock(self, block_hash):
-        return {'height': self.height, 'time': self.block_time}
 
     async def getmininginfo(self):
         return {'generate': self.generating}
 
     async def acall(self, method, params):
+        if method == 'getblock':
+            self.getblock_params = params
+            return {'height': self.height, 'time': self.block_time}
         self.calls.append((method, params))
 
 
@@ -33,6 +34,7 @@ class RunCheetahTests(unittest.TestCase):
         height = asyncio.run(run_cheetah(10, rpc, 2))
 
         self.assertEqual(height, 10)
+        self.assertEqual(rpc.getblock_params, ['best-block-hash', True])
         self.assertEqual(rpc.calls, [('setgenerate', [True, 2])])
 
     def test_restarts_mining_when_block_height_changes(self):

@@ -11,7 +11,7 @@ def create_rpc_client(url, rpc_user, rpc_password):
 
 async def run_cheetah(prevheight, rpc_connection, cpu):
     best_block_hash = await rpc_connection.getbestblockhash()
-    bestblock = await rpc_connection.getblock(best_block_hash)
+    bestblock = await rpc_connection.acall('getblock', [best_block_hash, True])
 
     cur_epoch = int(time.time())
     bcstucktime = cur_epoch - bestblock['time']
