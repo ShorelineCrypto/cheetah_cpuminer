@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python3
 """
 Nengcoin (NENG) blockchain has dynamic difficulty adjustment algorithm
 which may trigger ASIC miners to get stuck on NENG blockchain finding no blocks
@@ -18,22 +18,19 @@ A full node of Nengcoin is required to be running at local PC
 
 # Python standard library imports.
 import argparse
-import time
-import datetime
-import itertools
+import asyncio
 import platform
 import os.path
 import re
 import sys
 
+if sys.version_info < (3, 7):
+    raise RuntimeError('Python 3.7 or later is required; you have version: {}.{}.{}'.format(
+        *sys.version_info[0:3]))
+
 # Modules in this package.
 import cpuminer.cheetah as cheetah
 import cpuminer.utils as utils
-
-
-# Safety for cases when shebang is bypassed.
-assert sys.version_info[0] == 2 and sys.version_info[1] >= 7, 'Python version 2.7 (or a later 2.x version) required; you have version: {}.{}.{}'.format(
-    *sys.version_info[0:3])
 
 
 
@@ -49,18 +46,20 @@ class UserInputException(Exception):
         return repr(self.message)
 
 
-def main(args):
+async def main(args):
     """Main execution functions.
 
     """
     osname = platform.system()
-    print "Your Computer Platform is: {}".format(osname)
+    print("Your Computer Platform is: {}".format(osname))
     if osname == 'Linux':
        tmpFile1 = os.path.join(os.path.expanduser("~"), '.nengcoin',  'nengcoin.conf')
        tmpFile2 = os.path.join(os.path.dirname(
            utils.getPathOfThisFile()), 'nengcoin.conf')
     elif osname == 'Windows':
-       tmpFile1 = os.path.join(os.path.expandvars("%userprofile%"), 'AppData\Roaming\Nengcoin','nengcoin.conf')
+       tmpFile1 = os.path.join(
+           os.path.expandvars("%userprofile%"), 'AppData', 'Roaming',
+           'Nengcoin', 'nengcoin.conf')
        tmpFile2 = os.path.join(os.path.dirname(
            utils.getPathOfThisFile()), 'nengcoin.conf')
     elif osname == 'Darwin':
@@ -72,56 +71,55 @@ def main(args):
 
     if utils.isReadable(tmpFile1):
         NengConfigFile = tmpFile1
-        print "config found: {}".format(tmpFile1)
+        print("config found: {}".format(tmpFile1))
     elif utils.isReadable(tmpFile2):
         NengConfigFile = tmpFile2
-        print "config found: {}".format(tmpFile2)
+        print("config found: {}".format(tmpFile2))
     else:
         raise UserInputException(
             "Error in reading NENG Config File. Please copy or create file 'nengcoin.conf' using example file")
-        sys.exit(100)
 
 
     # Loading configuration file
-    configFile = open(NengConfigFile, 'rU')
     config = dict([(k, None) for k in ['rpcuser', 'rpcpassword', 'rpcport']])
     config['rpcport'] = 6376
 
     # TODO: Properly Loading config from file
-    for line in configFile:
-        if line.startswith('#') or re.match(r'^\s+$', line):
-            continue
-        m1 = re.search(
-            r'^rpcuser=(\S+)\s*$', line, re.M)
-        if m1 :
-            config['rpcuser'] = m1.group(1)
-        
-        m2 = re.search(
-            r'^rpcpassword=(\S+)\s*$', line, re.M)
-        if m2:
-            config['rpcpassword'] = m2.group(1)
-        
-        m3 = re.search(
-            r'^rpcport=(\d+)\s*$', line, re.M)
-        if m3:
-            config['rpcport'] = int(m3.group(1))
-        
-    # window will crash on os.fync on read only file
-    # a simple close
-    configFile.close()
+    with open(NengConfigFile, 'r', encoding='utf-8') as configFile:
+        for line in configFile:
+            if line.startswith('#') or re.match(r'^\s+$', line):
+                continue
+            m1 = re.search(
+                r'^rpcuser=(\S+)\s*$', line, re.M)
+            if m1:
+                config['rpcuser'] = m1.group(1)
+
+            m2 = re.search(
+                r'^rpcpassword=(\S+)\s*$', line, re.M)
+            if m2:
+                config['rpcpassword'] = m2.group(1)
+
+            m3 = re.search(
+                r'^rpcport=(\d+)\s*$', line, re.M)
+            if m3:
+                config['rpcport'] = int(m3.group(1))
 
     assert config['rpcuser'] is not None, "rpcuser missing!"
     assert config['rpcpassword'] is not None, "rpcpassword missing!"
 
 
-    print "Bitcoin Digital Gold - HODL\nDogecoin to the Moon"
-    print "Here comes Cheetah running with Neng\nMobile Decentralization!\n"
-    print "Nengcoin cheetah_cpuminer started"
- 
-    blocknum = 0
-    while True:
-        blocknum = cheetah.run_cheetah(blocknum,config['rpcuser'], config['rpcpassword'], config['rpcport'], args.cpu)
-        time.sleep(args.interval)
+    print("Bitcoin Digital Gold - HODL\nDogecoin to the Moon")
+    print("Here comes Cheetah running with Neng\nMobile Decentralization!\n")
+    print("Nengcoin cheetah_cpuminer started")
+
+    url = 'http://127.0.0.1:{}'.format(config['rpcport'])
+    async with cheetah.create_rpc_client(
+            url, config['rpcuser'], config['rpcpassword']) as rpc_connection:
+        blocknum = 0
+        while True:
+            blocknum = await cheetah.run_cheetah(
+                blocknum, rpc_connection, args.cpu)
+            await asyncio.sleep(args.interval)
 
 
 ################################################################################
@@ -145,5 +143,5 @@ if __name__ == '__main__':
     
     args = parser.parse_args()
     # running main function
-    main(args)
+    asyncio.run(main(args))
     

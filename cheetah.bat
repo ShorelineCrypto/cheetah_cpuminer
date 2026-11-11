@@ -1,4 +1,4 @@
-set PATH=C:\Python27;C:\Python27\Scripts;%PATH%
-python main.py -h
-python main.py --interval 10 --cpu 1
+@echo off
+py -3 main.py -h
+py -3 main.py --interval 10 --cpu 1
 pause

@@ -1,6 +1,7 @@
 # cheeta_cpuminer
 
-Warning: this software only works on older verison of python 2.7 or python2. This software will not work in newest python 3 versions.
+Requires Python 3.7 or later. The async RPC dependency is installed as the PyPI
+package `bitcoinrpc` (from the `bitcoin-python-async-rpc` project).
 
 ## Youtube Video Tutorial
 
@@ -56,16 +57,11 @@ you run cheetah inside chromebook's linux terminal.
 
 ### How to Install Cheetah_Cpuminer
 
- - Under supported version linux, run below command to install python-bitcoinrpc 
-   ( https://github.com/jgarzik/python-bitcoinrpc )
-``` 
-     curl https://bootstrap.pypa.io/pip/2.7/get-pip.py  -o get-pip.py
-     sudo  python2 get-pip.py
+ - Install Python 3.7 or later and create an environment with the required async RPC client:
 ```
-     In new linux distro versions,  the python 2.7 is python2 , pip2 is used to avoid confusion with python3 
-
-```
-     sudo pip2 install python-bitcoinrpc
+     python3 -m venv .venv
+     . .venv/bin/activate
+     python -m pip install -r requirements.txt
 ```
 
 ### How to Run Cheetah_Cpuminer
@@ -84,26 +80,20 @@ you run cheetah inside chromebook's linux terminal.
 ```
  or more customized command line like below:
 ```
-    python2 main.py  --interval  10  --cpu 4
+    python3 main.py  --interval  10  --cpu 4
 ```
  - Optimization of CPU mining on cheetah.sh file: see below windows section for detailed recommendation. 
  
  
- ## MacOS 10.11 El Capitan or higher 
+ ## macOS
 
 ### How to Install Cheetah_Cpuminer
 
- - Under macOS terminal, install pip if it is not there:
-
+ - Install Python 3.7 or later, then create an environment and install the dependency:
 ```
-     curl https://bootstrap.pypa.io/pip/2.7/get-pip.py  -o get-pip.py
-     sudo  python2 get-pip.py
-```
-
- - Under macOS terminal, run below command to install python-bitcoinrpc  ( https://github.com/jgarzik/python-bitcoinrpc ):
- 
-``` 
-     sudo pip2 install python-bitcoinrpc
+     python3 -m venv .venv
+     . .venv/bin/activate
+     python -m pip install -r requirements.txt
 ```
 
 ### How to Run Cheetah_Cpuminer
@@ -124,16 +114,16 @@ you run cheetah inside chromebook's linux terminal.
  - Optimization of CPU mining on cheetah.sh file: see below windows section for detailed recommendation. 
  
  
- ## Windows 10, XP or higher
+ ## Windows 10 or later
 
 ### How to Install Cheetah_Cpuminer
 
- - Download v2.7.x version of windows python from https://www.python.org/downloads/windows/ and install it.
- - Open a window command prompt terminal, run below command to install python-bitcoinrpc 
-   ( https://github.com/jgarzik/python-bitcoinrpc )
+ - Download and install Python 3.7 or later from https://www.python.org/downloads/windows/.
+ - Open a Command Prompt in the Cheetah_Cpuminer directory and run:
 ```
-     set PATH=C:\Python27;C:\Python27\Scripts;%PATH%
-     pip install python-bitcoinrpc
+     py -3 -m venv .venv
+     .venv\Scripts\activate
+     python -m pip install -r requirements.txt
 ```
 
 ### How to Run Cheetah_Cpuminer
@@ -155,13 +145,7 @@ you run cheetah inside chromebook's linux terminal.
  - Example of a full command assuming 10 secondes interval and 2 core cpu in "cheetah.bat" file or "cheetah.sh" file
 
 ```
-     python main.py --interval 10 --cpu 2
-```
-
-In newer version of Linux or macOS, many times the python 2.7 path is "python2" so that the command should be:
-
-```
-     python2 main.py --interval 10 --cpu 2
+     python3 main.py --interval 10 --cpu 2
 ```
 
 
@@ -170,5 +154,3 @@ In newer version of Linux or macOS, many times the python 2.7 path is "python2" 
 
 Cheetah_Cpuminer is released under the terms of the MIT license. See `COPYING` for more
 information or see http://opensource.org/licenses/MIT.
-
-
