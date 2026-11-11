@@ -137,6 +137,25 @@ you run cheetah inside chromebook's linux terminal.
  
  #### Note for Windows CPU Miners
  - Even if the wallet is fully synced under window machine, you may have to  double click the bat file,  stay for couple of minutes and then close it, and restart it again to allow cheetah to work properly.  Somehow cheetah bat file may not work with the first try. 
+
+## Selecting NENG or CHTA
+
+The default coin is NENG, so existing commands continue to use Nengcoin. To mine
+Cheetahcoin, pass `--coin CHTA` and configure the Cheetahcoin node's RPC user and
+password in `cheetahcoin.conf`:
+
+```sh
+python3 main.py --coin CHTA --interval 10 --cpu 2
+```
+
+The miner looks for `cheetahcoin.conf` in the Cheetahcoin data directory
+(`~/.cheetahcoin/` on Linux, `~/Library/Application Support/Cheetahcoin/` on
+macOS, or `%APPDATA%\Cheetahcoin\` on Windows), then in the project directory.
+Copy the supplied `cheetahcoin.conf` there and replace the example RPC
+credentials with those configured for your CHTA node.
+The supplied example uses CHTA's default RPC port, `8536`; set the same port in
+the node config if you use a different one. NENG continues to use
+`nengcoin.conf` and its default RPC port `6376`.
  
  
  ## Optimization for CPU solo mining with Cheetah

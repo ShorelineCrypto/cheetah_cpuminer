@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """
-Nengcoin (NENG) blockchain has dynamic difficulty adjustment algorithm
-which may trigger ASIC miners to get stuck on NENG blockchain finding no blocks
-from several minutes to several hours.
+Cheetah monitors Nengcoin (NENG) or Cheetahcoin (CHTA) and starts local CPU mining
+when the selected blockchain's blocks stop arriving.
 
 Cheetah_cpuminer will automatically start mining at local PC when ASIC miners get stuck.
 Cheeta_cpuminer will stop mining when ASIC miners are smoothly generating blocks. 
 
-A full node of Nengcoin is required to be running at local PC
+A full node for the selected coin must be running on the local PC.
 """
 
 
@@ -33,6 +32,24 @@ import cpuminer.cheetah as cheetah
 import cpuminer.utils as utils
 
 
+COIN_SETTINGS = {
+    'NENG': {
+        'config_dir': '.nengcoin',
+        'config_file': 'nengcoin.conf',
+        'app_dir': 'Nengcoin',
+        'default_port': 6376,
+        'stuck_timeout': 120,
+    },
+    'CHTA': {
+        'config_dir': '.cheetahcoin',
+        'config_file': 'cheetahcoin.conf',
+        'app_dir': 'Cheetahcoin',
+        'default_port': 8536,
+        'stuck_timeout': 240,
+    },
+}
+
+
 
 ################################################################################
 # Main Function
@@ -50,42 +67,48 @@ async def main(args):
     """Main execution functions.
 
     """
+    coin_settings = COIN_SETTINGS[args.coin]
     osname = platform.system()
     print("Your Computer Platform is: {}".format(osname))
     if osname == 'Linux':
-       tmpFile1 = os.path.join(os.path.expanduser("~"), '.nengcoin',  'nengcoin.conf')
+       tmpFile1 = os.path.join(
+           os.path.expanduser("~"), coin_settings['config_dir'],
+           coin_settings['config_file'])
        tmpFile2 = os.path.join(os.path.dirname(
-           utils.getPathOfThisFile()), 'nengcoin.conf')
+           utils.getPathOfThisFile()), coin_settings['config_file'])
     elif osname == 'Windows':
        tmpFile1 = os.path.join(
            os.path.expandvars("%userprofile%"), 'AppData', 'Roaming',
-           'Nengcoin', 'nengcoin.conf')
+           coin_settings['app_dir'], coin_settings['config_file'])
        tmpFile2 = os.path.join(os.path.dirname(
-           utils.getPathOfThisFile()), 'nengcoin.conf')
+           utils.getPathOfThisFile()), coin_settings['config_file'])
     elif osname == 'Darwin':
-       tmpFile1 = os.path.join(os.path.expanduser("~"), 'Library/Application Support/Nengcoin',  'nengcoin.conf')
+       tmpFile1 = os.path.join(
+           os.path.expanduser("~"), 'Library', 'Application Support',
+           coin_settings['app_dir'], coin_settings['config_file'])
        tmpFile2 = os.path.join(os.path.dirname(
-           utils.getPathOfThisFile()), 'nengcoin.conf')
+           utils.getPathOfThisFile()), coin_settings['config_file'])
     else:
         assert False, "Error: unsupported operating system: {}".format(osname)
 
     if utils.isReadable(tmpFile1):
-        NengConfigFile = tmpFile1
+        config_file = tmpFile1
         print("config found: {}".format(tmpFile1))
     elif utils.isReadable(tmpFile2):
-        NengConfigFile = tmpFile2
+        config_file = tmpFile2
         print("config found: {}".format(tmpFile2))
     else:
         raise UserInputException(
-            "Error in reading NENG Config File. Please copy or create file 'nengcoin.conf' using example file")
+            "Error in reading {} config file. Please copy or create '{}' using the example file".format(
+                args.coin, coin_settings['config_file']))
 
 
     # Loading configuration file
     config = dict([(k, None) for k in ['rpcuser', 'rpcpassword', 'rpcport']])
-    config['rpcport'] = 6376
+    config['rpcport'] = coin_settings['default_port']
 
     # TODO: Properly Loading config from file
-    with open(NengConfigFile, 'r', encoding='utf-8') as configFile:
+    with open(config_file, 'r', encoding='utf-8') as configFile:
         for line in configFile:
             if line.startswith('#') or re.match(r'^\s+$', line):
                 continue
@@ -108,9 +131,14 @@ async def main(args):
     assert config['rpcpassword'] is not None, "rpcpassword missing!"
 
 
-    print("Bitcoin Digital Gold - HODL\nDogecoin to the Moon")
-    print("Here comes Cheetah running with Neng\nMobile Decentralization!\n")
-    print("Nengcoin cheetah_cpuminer started")
+    if args.coin == 'NENG':
+        print("Bitcoin Digital Gold - HODL\nDogecoin to the Moon")
+        print("Here comes Cheetah running with Neng\nMobile Decentralization!\n")
+        print("Nengcoin cheetah_cpuminer started")
+    else:
+        print("Cheetahcoin (CHTA) is a cat meme coin on Bitcoin's SHA256\n")
+        print("\nMobile Decentralization!\n")
+        print("Cheetahcoin cheetah_cpuminer started!")
 
     url = 'http://127.0.0.1:{}'.format(config['rpcport'])
     async with cheetah.create_rpc_client(
@@ -118,8 +146,25 @@ async def main(args):
         blocknum = 0
         while True:
             blocknum = await cheetah.run_cheetah(
-                blocknum, rpc_connection, args.cpu)
+                blocknum, rpc_connection, args.cpu, args.coin,
+                coin_settings['stuck_timeout'])
             await asyncio.sleep(args.interval)
+
+
+def create_argument_parser():
+    parser = argparse.ArgumentParser(
+        description=__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    parser.add_argument('--interval', type=int, nargs='?', default=120 , 
+                        help='seconds to wait between blockchain checks [default: 120]')
+    parser.add_argument('--cpu', nargs='?', type=int, default=1 ,
+                        help='How many cpu cores to be used for mining [default: 1]')
+    parser.add_argument(
+        '--coin', choices=COIN_SETTINGS, default='NENG',
+        help='Coin to monitor: NENG or CHTA (default: NENG)')
+
+    return parser
 
 
 ################################################################################
@@ -127,21 +172,7 @@ async def main(args):
 ################################################################################
 
 if __name__ == '__main__':
-
-    # ===============================================================================
-    # Parse and validate command-line args and input config.
-    # ===============================================================================
-
-    parser = argparse.ArgumentParser(
-        description=__doc__,
-        formatter_class=argparse.RawDescriptionHelpFormatter
-    )
-    parser.add_argument('--interval', type=int, nargs='?', default=120 , 
-                        help='seconds to wait between each check on NENG blockchain, [default: 120]')
-    parser.add_argument('--cpu', nargs='?', type=int, default=1 ,
-                        help='How many cpu cores to be used for mining [default: 1]')
-    
-    args = parser.parse_args()
+    args = create_argument_parser().parse_args()
     # running main function
     asyncio.run(main(args))
     
