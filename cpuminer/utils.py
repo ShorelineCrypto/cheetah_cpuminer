@@ -62,7 +62,7 @@ def isReadable(filePath):
     try:
         f = open(filePath, 'r')
         f.close()
-    except IOError, e:
+    except OSError as e:
         l.error('Cannot open for reading: {}'.format(filePath))
         l.error('Reason: {}'.format(e))
         return False
@@ -79,9 +79,8 @@ def isWriteable(filePath):
         f = open(filePath, 'w')
         properClose(f)
         os.remove(f.name)
-    except IOError, e:
+    except OSError as e:
         l.error('Cannot open for writing: {}'.format(filePath))
         l.error('Reason: {}'.format(e))
         return False
     return True
-

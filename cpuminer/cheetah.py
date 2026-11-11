@@ -1,45 +1,48 @@
 import time
 from datetime import datetime
-from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 
-def run_cheetah(prevheight, rpc_user,rpc_password,rpc_port, cpu):
-   
-
-   # rpc_user and rpc_password are set in the bitcoin.conf file
-   rpc_connection = AuthServiceProxy("http://%s:%s@127.0.0.1:%d"%(rpc_user, rpc_password, rpc_port))
-
-   best_block_hash = rpc_connection.getbestblockhash()
-   bestblock = rpc_connection.getblock(best_block_hash)
-
-   cur_epoch = int(time.time()) 
-   bcstucktime = cur_epoch - bestblock['time']
-
-   if bcstucktime < 0:
-      print "Height {} block Time is ahead of current time {} seconds, current {} GMT".format(bestblock['height'], bcstucktime, datetime.utcnow())
-   mining_info = rpc_connection.getmininginfo()
-   
-   if ( bcstucktime > 120 ):
-      print "ASIC/GPU miners got stuck on NENG blockchain for {} seconds".format(bcstucktime)
-      print "Cheetah running, block {}: {} {} GMT".format(bestblock['height'],bestblock['time'], datetime.utcnow())
-      
-      if not mining_info['generate']:
-         print("Cheetah accelerates, NENG CPU Mining Started")
-         rpc_connection.setgenerate(True, cpu)
-      elif bestblock['height'] != prevheight:
-         print("Cheetah jumps, NENG CPU Mining Restarted")
-         rpc_connection.setgenerate(False)
-         rpc_connection.setgenerate(True, cpu)
-   else:
-      if mining_info['generate']:
-         print "block {}: {} {} GMT".format(bestblock['height'],bestblock['time'], datetime.utcnow())
-         print("Cheetah rests, NENG CPU Mining Stopped")
-         rpc_connection.setgenerate(False)
+from bitcoinrpc import BitcoinRPC
 
 
-   return bestblock['height']
+def create_rpc_client(url, rpc_user, rpc_password):
+    """Create the async RPC client using credentials from the selected coin config."""
+    return BitcoinRPC.from_config(url, (rpc_user, rpc_password))
 
-   
-   
 
-         
+async def run_cheetah(prevheight, rpc_connection, cpu, coin='NENG',
+                      stuck_timeout=120):
+    if coin == 'CHTA':
+        block_height = await rpc_connection.getblockcount()
+        best_block_hash = await rpc_connection.getblockhash(block_height)
+    else:
+        best_block_hash = await rpc_connection.getbestblockhash()
+    bestblock = await rpc_connection.acall('getblock', [best_block_hash, True])
 
+    cur_epoch = int(time.time())
+    bcstucktime = cur_epoch - bestblock['time']
+
+    if bcstucktime < 0:
+        print("Height {} block Time is ahead of current time {} seconds, current {} GMT".format(
+            bestblock['height'], bcstucktime, datetime.utcnow()))
+    mining_info = await rpc_connection.getmininginfo()
+
+    if bcstucktime > stuck_timeout:
+        print("ASIC/GPU miners got stuck on {} blockchain for {} seconds".format(
+            coin, bcstucktime))
+        print("Cheetah running, block {}: {} {} GMT".format(
+            bestblock['height'], bestblock['time'], datetime.utcnow()))
+
+        if not mining_info['generate']:
+            print("Cheetah accelerates, {} CPU Mining Started".format(coin))
+            await rpc_connection.acall('setgenerate', [True, cpu])
+        elif bestblock['height'] != prevheight:
+            print("Cheetah jumps, {} CPU Mining Restarted".format(coin))
+            await rpc_connection.acall('setgenerate', [False])
+            await rpc_connection.acall('setgenerate', [True, cpu])
+    elif mining_info['generate']:
+        print("block {}: {} {} GMT".format(
+            bestblock['height'], bestblock['time'], datetime.utcnow()))
+        print("Cheetah rests, {} CPU Mining Stopped".format(coin))
+        await rpc_connection.acall('setgenerate', [False])
+
+    return bestblock['height']
